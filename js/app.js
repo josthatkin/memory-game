@@ -8,10 +8,10 @@ function doCardsMatch(card1, card2, node1, node2){
 
    if(card1.icon === card2.icon){
        node1.classList.add('match');
-       node2.classLisit.add('match');
-}
+       node2.classList.add('match');
+    }
     else {
-        card.flipped = false;
+        card1.flipped = false;
         card2.flipped = false;
     }
   }
@@ -30,26 +30,24 @@ function cardClick(event){
         thisNode = event.target.parentNode;
 
       }
-      console.log(thisNode); // Will display the HTML code of the card that was clicked
+      
       thisCard = thisNode.cardObject;
-      console.log(thisCard); // Will display the JavaScript object of the card was clicked 
-
- 
+      
       if(!thisCard.flipped) {
-          thisNode.classList.add('flip');
-          thisCard.flipped = true;
-          totalClicks++;
-          if(totalClicks % 2 === 1) {
-            card1 = thisCard;
-            node1 = thisNode;
-          }
-          else {
-            card2 = thisCard;
-            node2 = thisNode;
-            doCardsMatch(card1, card2, node1, node2);
-          }
+        thisNode.classList.add('flip');
+        thisCard.flipped = true;
+        totalClicks++;
+        if(totalClicks % 2 === 1) {
+          card1 = thisCard;
+          node1 = thisNode;
+        }
+        else {
+          card2 = thisCard;
+          node2 = thisNode;
+          doCardsMatch(card1, card2, node1, node2);
         }
       }
+    }
 };
 
 window.addEventListener('load', function(){
@@ -68,8 +66,7 @@ window.addEventListener('load', function(){
       card.appendChild(icon);
       gameBoard.appendChild(card);
     }
-
-
+    
     gameBoard.addEventListener('click',cardClick);
 });
 

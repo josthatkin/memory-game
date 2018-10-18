@@ -35,7 +35,7 @@ font-size: 2em;
 transform: rotate(0);
 }
 .match {
-  background-color:rgb(15, 83, 74)
+  background-color:rgb(15, 83, 74);
  font-size: 2em;
   cursor:default;
 
